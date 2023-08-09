@@ -7,6 +7,13 @@ export default function SideBar({ navLinks }) {
   const [open, setOpen] = useState(false)
   const router = useRouter()
   const pathname= usePathname()
+
+  function setRouteAndHide(to){
+    //console.log(to);
+    router.push(to)
+    setOpen(false)
+   }
+  
   return (
     <>
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
@@ -70,8 +77,10 @@ export default function SideBar({ navLinks }) {
             const isActive = pathname === link.to;
 
             return (
-              <button  className={isActive ? 'text-red-600' : 'font-sans text-center text-white text-xl hover:bg-red-400 cursor-pointer py-3 mb-2'} type="button" onClick={() => router.push(link.to)}>
-               {link.name}
+              // eslint-disable-next-line react/jsx-key
+              <button  className={isActive ? 'ml-4 grid text-center text-white text-xl text-red-700 py-3 mb-2' : 'ml-4 grid text-center text-white text-xl hover:bg-red-700 py-3 mb-2'} type="button" onClick={() => setRouteAndHide(link.to)
+              }>
+               {link.name} 
               </button>
             );
           })}
