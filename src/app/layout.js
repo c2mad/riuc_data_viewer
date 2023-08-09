@@ -1,6 +1,7 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import Image from 'next/image'
+import SideBar from '@riuc/app/components/SideBar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -36,7 +37,7 @@ export default function RootLayout({ children }) {
             />
           </a>
           </div>
-          
+          <SideBar />
         </div>
       </div>
         {children}</body>
