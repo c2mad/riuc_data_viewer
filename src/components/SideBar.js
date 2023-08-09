@@ -1,9 +1,12 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
 
-export default function SideBar() {
-  const [open, setOpen] = useState(false);
+export default function SideBar({ navLinks }) {
+  const [open, setOpen] = useState(false)
+  const router = useRouter()
+  const pathname= usePathname()
   return (
     <>
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
@@ -12,9 +15,9 @@ export default function SideBar() {
           <div className="font-mono font-bold">
             <a
               className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-              href="https://ciitt.ucacue.edu.ec/"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => router.push("/")}
             >
               {" "}
               <Image
@@ -62,19 +65,17 @@ export default function SideBar() {
         } bg-black min-h-screen fixed top-0 left-0 transition-all duration-300`}
       >
         <div className={`${!open && "hidden"} pt-3`}>
-          <div className="font-sans text-center text-white text-xl hover:bg-red-400 cursor-pointer py-3 mb-2">
-            {/* <Link href={{pathname:"/info"}}>Información</Link> */}
-            <a href="/labs">Laboratorios</a>
-          </div>
 
-          <div className="font-sans text-center text-white text-xl hover:bg-red-400 cursor-pointer py-3 mb-2">
-            {/* <Link href={{pathname:"/info"}}>Información</Link> */}
-            <a href="/info">Información</a>
-          </div>
+        {navLinks.map((link) => {
+            const isActive = pathname === link.to;
 
-          <div className="font-sans text-center text-white text-xl hover:bg-red-400 cursor-pointer py-3 mb-2">
-            Proyectos
-          </div>
+            return (
+              <button  className={isActive ? 'text-red-600' : 'font-sans text-center text-white text-xl hover:bg-red-400 cursor-pointer py-3 mb-2'} type="button" onClick={() => router.push(link.to)}>
+               {link.name}
+              </button>
+            );
+          })}
+
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
