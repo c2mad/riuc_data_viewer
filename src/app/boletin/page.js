@@ -1,26 +1,27 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import { lista_proyectos } from "@utils/modelo_proyectos";
 import Search from "@riuc/components/search";
 import { usePathname, useRouter } from "next/navigation";
 
-export default function Proyectos() {
+import { lista_boletin } from "@utils/modelo_boletin";
+
+export default function Boletin() {
   const router = useRouter();
   const pathname = usePathname();
   const [searchResults, setSearchResults] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const projectsPerPage = 9; // Define el número de proyectos por página
+  const projectsPerPage = 6; // Define el número de proyectos por página
 
    // Agrega botones para navegar entre páginas
-   const totalPages = Math.ceil(lista_proyectos.length / projectsPerPage);
+   const totalPages = Math.ceil(lista_boletin.length / projectsPerPage);
 
    const handlePageChange = (page) => {
      setCurrentPage(page);
    };
 
   const handleSearch = (query) => {
-    const filteredProjects = lista_proyectos.filter((project) =>
+    const filteredProjects = lista_boletin.filter((project) =>
       project.name.toLowerCase().includes(query.toLowerCase())
     );
     setSearchResults(filteredProjects);
@@ -32,14 +33,14 @@ export default function Proyectos() {
   const projectsToDisplay =
     searchResults.length > 0 
     ? searchResults.slice(startIndex, endIndex)
-    : lista_proyectos.slice(startIndex, endIndex);
+    : lista_boletin.slice(startIndex, endIndex);
 
   return (
     <main className="flex min-h-screen flex-col items-center p-7 mb-5">
       <div className="text-center mb-10">
-        <h5 className="text-base md:text-lg text-red-500 mb-1">GeoVisor</h5>
+        <h5 className="text-base md:text-lg text-red-500 mb-1">BOLETÍN</h5>
         <h1 className="text-4xl md:text-7xl font-semibold p-5 mb-12 bg-gradient-to-r from-black to-black bg-clip-text text-transparent border-b-2 border-red-400">
-          PROYECTOS
+          LA RIOUC INFORMA 
         </h1>
         <Search onSearch={handleSearch} />
       </div>
@@ -69,7 +70,7 @@ export default function Proyectos() {
                   <p className="leading-relaxed mb-3"> {item.description}</p>
                   <div className="flex items-center flex-wrap ">
                     <a className="text-indigo-300 inline-flex items-center md:mb-2 lg:mb-0">
-                      <button
+                    <button
                         className={
                           isActive
                             ? "ml-4 grid text-center text-text-red-700 text-xl text-red-700 py-3 mb-2"
@@ -80,7 +81,6 @@ export default function Proyectos() {
                       >
                         Saber mas
                       </button>
-
                       <svg
                         className="w-4 h-4 ml-2"
                         viewBox="0 0 24 24"
