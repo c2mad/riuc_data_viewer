@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import Proyectos from "@riuc/app/proyectos/page";
-import { lista_proyectos } from "@riuc/utils/modelo_proyectos";
+import Proyectos from "@riouc/app/proyectos/page";
+import { lista_proyectos } from "@riouc/utils/modelo_proyectos";
 
 export default function SideBar({ navLinks }) {
   const [open, setOpen] = useState(false);

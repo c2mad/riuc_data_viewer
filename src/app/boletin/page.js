@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import Search from "@riuc/components/search";
+import Search from "@riouc/components/search";
 import { usePathname, useRouter } from "next/navigation";
 
 import { lista_boletin } from "@utils/modelo_boletin";
