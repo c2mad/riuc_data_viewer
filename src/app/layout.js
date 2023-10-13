@@ -1,9 +1,9 @@
 "use client";
 import "./globals.css";
 import { Inter } from "next/font/google";
-import SideBar from "@riouc/components/SideBar";
-import { routers_menu } from "@utils/routers";
-import Footer from "@riouc/components/footer";
+import SideBar from "../components/sideBar";
+import { routers_menu } from "../utils/routers";
+import Footer from "../components/footer";
 import { usePathname } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
