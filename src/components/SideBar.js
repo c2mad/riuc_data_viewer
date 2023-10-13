@@ -5,7 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import Proyectos from "@riouc/app/proyectos/page";
 import { lista_proyectos } from "@riouc/utils/modelo_proyectos";
 
-export default function sidebar({ navLinks }) {
+export default function SideBar({ navLinks }) {
   const [open, setOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
