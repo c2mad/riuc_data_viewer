@@ -18,6 +18,17 @@ export default function Mapa() {
   const [isZoomed, setIsZoomed] = useState(false);
   const [geoData, setGeoData] = useState(null);
 
+  // Utilidad para asignar color por nombre de parroquia
+  const getColorByName = (name) => {
+    const colors = {
+      Bellavista: "#e41a1c",
+      // Añade más parroquias aquí
+    };
+
+    // Color por defecto si no se encuentra el nombre
+    return colors[name] || "#bfbfbf";
+  };
+
 
   const toggleTextVisibility = () => {
     setTextVisibility(!isTextVisible);
@@ -55,7 +66,7 @@ export default function Mapa() {
   useEffect(() => {
     const fetchGeoJson = async () => {
       try {
-        const response = await axios.get("http://201.159.223.152/geoserver/ows?service=WFS&version=1.0.0&request=GetFeature&typename=geonode%3Apar_urbanas&outputFormat=json&srs=EPSG%3A24877&srsName=EPSG%3A24877");
+        const response = await axios.get("/data/parroquias_geojson.geojson");
         setGeoData(response.data);
       } catch (error) {
         console.error("Error al cargar el GeoJSON:", error);
@@ -149,11 +160,12 @@ export default function Mapa() {
                     {geoData && (
                       <GeoJSON
                         data={geoData}
-                        style={() => ({
-                          color: "#3388ff",
-                          weight: 2,
+                        style={(feature) => ({
+                          fillColor: getColorByName(feature.properties.DESCRIP),
+                          weight: 1,
                           opacity: 1,
-                          fillOpacity: 0.4
+                          color: "white",
+                          fillOpacity: 0.7,
                         })}
                       />
                     )}
