@@ -3,13 +3,13 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-export default function Boletinn5() {
+export default function Boletinn6() {
   const router = useRouter();
-
+  
   // Función para abrir PDF
   const abrirPDF = () => {
-    const pdfUrl = "/pdf/REVISTA5.pdf";
-    window.open(pdfUrl, "_blank");
+    const pdfUrl = "/pdf/REVISTA6.pdf";
+    window.open(pdfUrl, "_blank"); // window es un objeto global del navegador, asegurate de que el entorno sea del cliente
   };
 
   // Función para navegar a una ruta específica
@@ -43,60 +43,61 @@ export default function Boletinn5() {
         </button>
       </div>
       <h1 className="text-6xl text-red-500 font-semibold mb-5 mt-3">BOLETÍN</h1>
-      <h2 className="text-base text-gray-400">Volumen 2 / N°2</h2>
-      <h2 className="text-base text-gray-400 mb-1">mayo - agosto 2025</h2>
+      <h2 className="text-base text-gray-400">Volumen 2 / N°3</h2>
+      <h2 className="text-base text-gray-400 mb-3">septiembre - diciembre 2025</h2>
       <p className="text-lg text-gray-800 mb-5 text-justify">
-        La Universidad Católica de Cuenca, a través de su Vicerrectorado de Investigación, reafirma su misión fundamental no solo de producir conocimiento riguroso, sino de democratizarlo, estableciendo la divulgación científica como un puente ineludible entre la academia y la sociedad.
+        La Red de Investigación y Observatorios de la Universidad Católica de Cuenca (RIOUC) reafirma que la excelencia académica solo alcanza su verdadero propósito cuando se convierte en bienestar colectivo. La vinculación con la sociedad no es un apéndice de nuestra labor, sino el corazón mismo de nuestra misión transformadora.
       </p>
       <div className="flex flex-col md:flex-row mb-5">
-        <div className="md:w-1/2 md:pr-4 mt-2">
+        <div className="md:w-1/2 md:pr-4">
+          <div className="text-lg text-gray-800 mb-5 text-justify">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 inline text-red-500 mr-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            En esta nueva edición del boletín “RIOUC Informa” (Vol. 2, No. 3), compartimos con ustedes las memorias de la Semana de la Vinculación 2025, un recorrido por las iniciativas que están tejiendo lazos indisolubles entre la universidad y el territorio. Este número recoge experiencias vitales que van desde la intervención médica en el proyecto "Creando Sonrisas" para niños con labio fisurado, hasta la innovación educativa con la Academia STEAM y el fortalecimiento de la identidad cultural Cañari.
+          </div>
+          <div className="text-lg text-gray-800 mb-5 text-justify">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 inline text-red-500 mr-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            Hablamos de ciencia aplicada al servicio de la comunidad: consultorios contables gratuitos, mejoramiento genético para el agro, prevención de salud en escuelas rurales y empoderamiento de mujeres artesanas. Es la evidencia de una academia que escucha, aprende y trabaja hombro a hombro con la ciudadanía.
+          </div>
+          
+        </div>
+        <div className="md:w-1/2 md:pl-4">
           <Image
-            src="/img/mariaemilia.png"
+            src="/img/preview_boletin.png"
             alt="RIOUC"
-            width={405}
-            height={165}
+            width={440}
+            height={175}
             className="mx-auto rounded-lg"
           />
         </div>
-        <div className="md:w-1/2 md:pl-4 mt-3">
-          <div className="text-lg text-gray-800 mb-5 text-justify">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 inline text-red-500 mr-2"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
-            En esta edición especial del boletín “RIOUC Informa”, dedicada a la Semana de la Ciencia 2025, abrimos las puertas de la universidad para conectar el rigor académico con las inquietudes de la sociedad. A través de estas páginas, les invitamos a explorar la fascinante convergencia entre el arte y la microbiología en el proyecto 'Invisible Pegaso', a reflexionar sobre los desafíos éticos de la Inteligencia Artificial junto a la UNESCO y a ser testigos del esfuerzo por democratizar el conocimiento llevando la ciencia a las aulas de colegio. Este número celebra no solo la excelencia de nuestros investigadores, sino también nuestra misión de transformar el futuro a través de la divulgación y la innovación responsable.
-          </div>
-          <div className="text-lg text-gray-800 mb-5 text-justify">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 inline text-red-500 mr-2"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
-            Gracias a la visión de la recién creada Unidad de Divulgación Científica y al talento de nuestros galardonados —desde autores en la revista Science hasta innovadores en tecnología médica—, esta publicación se consolida como un espacio donde dialogan la biotecnología, la ética digital y la conciencia ambiental.
-          </div>
-        </div>
       </div>
 
-      <div className="text-lg text-gray-800 mb-5 text-justify">
+      <div className="text-lg text-gray-800 mb-10 text-justify">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 w-5 inline text-red-500 mr-2"
@@ -111,8 +112,9 @@ export default function Boletinn5() {
             d="M5 13l4 4L19 7"
           />
         </svg>
-        Invitamos a todas las personas lectoras a sumergirse en este cruce de caminos entre la razón y la creatividad, participando activamente en una conversación necesaria sobre cómo la ciencia, cuando es compartida y humana, tiene el poder de redefinir nuestro entorno.
+        Invitamos a todas las personas lectoras a sumarse a esta red de solidaridad y conocimiento, con una mirada crítica, reflexiva y profundamente comprometida con la construcción de un futuro más justo y equitativo para todos.
       </div>
+
       <div className="mb-12 text-center">
         <button
           className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
